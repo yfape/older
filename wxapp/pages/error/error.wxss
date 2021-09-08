@@ -1,0 +1,8 @@
+/* pages/error/error.wxss */
+.tipb{
+  padding: 5px 0;
+  font-size: small;
+  color: #07C160;
+  text-decoration: underline;
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+<view id="header">
+  <view class="lt">
+    <image src="/static/image/logo.gif"></image>
+  </view>
+  <view class="wave">
+    <view class="af"></view>
+    <view class="as"></view>
+  </view>
+</view>
+<view class="wait">
+  <view>
+    <view> 登录中，请稍等 </view>
+  </view>
+</view>
+<view class="copyright">@ 四川省老干部活动中心</view>

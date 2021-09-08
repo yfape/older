@@ -1,0 +1,28 @@
+<!--pages/admin/hdqd/hdqd.wxml-->
+<view class="ver-p hor-p bc-n" style="height:95vh">
+  <view class="bc-primary ver-p hor-p sha br-s tc-w mb-m">
+    <view class="ts-l tw-b" style="display:flex">
+      仅显示当日：
+      <picker mode="date" value="{{date}}" start="{{startdate}}" end="{{enddate}}" bindchange="bindDateChange">
+        {{date}}
+      </picker>
+    </view>
+  </view>
+
+  <view>
+      <view wx:for="{{teams}}" wx:key="tid" class="item sha mb-m" bindtap="go">
+        <view class="header mb-s">
+          <view class="title ts-ll tw-b">{{item.name}}</view>
+          <view class="info tc-tip">剩余名额：{{item.sur}}</view>
+        </view>
+        <view class="content">
+          <view class="sectionitem divider" wx:for="{{item.section}}" wx:for-index="k" wx:for-item="sectionitem" wx:key="sid" data-sid="{{sectionitem.sid}}" bindtap="goSectionPage">
+            <view class="title tc-tip">{{sectionitem.start}}-{{sectionitem.end}}</view>
+            <view class="info {{sectionitem.status==0?'tc-primary':sectionitem.status==1?'tc-info':'tc-tip'}}">{{sectionitem.statustext}}</view>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+
+<view class="fixedbutton" bindtap="goBack">后退</view>

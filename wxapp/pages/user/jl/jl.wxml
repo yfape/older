@@ -1,0 +1,11 @@
+<!--pages/index/jl/jl.wxml-->
+<view class="bc-n">
+  <mp-loading type="circle" wx:if="{{!show}}"></mp-loading>
+  <view wx:else id="container" class="hor-p ver-p">
+    <view wx:if="{{indexdata.length<=0}}" class="ta-c tc-tip">暂无预约记录</view>
+    <recordcard mode="2" wx:for="{{indexdata}}" wx:key="rid" wx:for-item="v" content="{{v}}" data-record="{{v}}" bindtap="openRecord"/>
+    <view wx:if="{{moreshow}}" class="tc-tip tc-ll ta-c" bindtap="getIndexData">点击加载更多记录</view>
+  </view>
+  
+  <recordpanel id="recordpanel" mode="2" bind:hide="hideRecord"></recordpanel>
+</view>

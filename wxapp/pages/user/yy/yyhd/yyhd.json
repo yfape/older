@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "sectioncard": "/components/sectioncard/sectioncard",
+    "sectionpanel": "/components/sectionpanel/sectionpanel",
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "mp-loading": "weui-miniprogram/loading/loading"
+  }
+}

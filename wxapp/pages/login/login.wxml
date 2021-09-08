@@ -1,0 +1,21 @@
+<!--pages/login/login.wxml-->
+<view id="header">
+  <view class="lt">
+    <view>
+      <view class="t">四川省老干部活动中心</view>
+      <view class="st">预约平台<text class="sup">mini+</text></view>
+    </view>
+  </view>
+  <view class="wave">
+    <view class="af"></view>
+    <view class="as"></view>
+  </view>
+  <view class="wait">
+    <view class="sline">---</view>
+    <view>
+      <view> 登录中 </view>
+      <view> 请耐心等待 </view>
+    </view>
+    <view class="sline">---</view>
+  </view>
+</view>

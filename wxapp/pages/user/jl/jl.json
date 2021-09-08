@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "recordcard": "/components/recordcard/recordcard",
+    "recordpanel": "/components/recordpanel/recordpanel",
+    "mp-loading": "weui-miniprogram/loading/loading"
+  }
+}

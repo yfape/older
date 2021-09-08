@@ -1,0 +1,9 @@
+/* pages/admin/hdqd/hdqd.wxss */
+.item{background-color:#fff;border-radius: 3px; padding:15px 15px}
+.item > .header, .sectionitem{display:flex;justify-content: space-between;align-items: center;}
+.sectionitem{height:50px;}
+.sectionitem:last-child{box-shadow:0px 0px 0px #fff!important;}
+.buttonitem{background-color: #fff;width:45vw;height:60px;border-radius:3px;display:flex;align-items: center;justify-content: center;}
+.recorditem{background-color:#fff;height:60px;display: flex;justify-content: space-between;align-items: center;}
+.bi{width:100px!important;}
+.di{display: flex;justify-content: space-between;align-items: center;height:40px}

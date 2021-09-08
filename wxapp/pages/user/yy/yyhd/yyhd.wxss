@@ -1,0 +1,6 @@
+/* pages/user/yy/yyhd/yyhd.wxss */
+#mt{padding-top:25px;background-color: #256fff;color:#fff;}
+#welcome{padding-bottom:25px;}
+#footer{position:fixed;bottom:0;width:100%;height:50px;display:flex}
+#footer > .action{width:20%;text-align: center;line-height:50px;color:#fff;}
+#footer > .datetext{width:60%;text-align: center;line-height:50px;background-color:#fff;}

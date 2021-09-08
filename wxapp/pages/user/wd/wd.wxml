@@ -1,0 +1,38 @@
+<!--pages/user/wd/wd.wxml-->
+<view id="mt">
+  <view id="header" class="hor-p">
+    <view class="f-l headimg"><image src="/static/image/head.jpg"></image></view>
+    <view class="f-l info">
+      <view class="first"><text class="ts-l tw-b">{{user.name}}</text></view>
+      <view class="ts-s second">编号：{{user.incode}}</view>
+      <view class="ts-s second">手机：{{user.phone}}</view>
+    </view>
+  </view>
+</view>
+<view id="main" class="hor-p ver-p">
+  <view class="item divider" bindtap="openMyewm">
+    <mp-icon class="logo" icon="qr-code" color="black" size="{{30}}"></mp-icon>
+    <view class="title ts-ll">我的二维码</view>
+    <view class="right tc-tip">></view>
+  </view>
+  <view class="item divider">
+    <mp-icon class="logo" icon="help" color="black" size="{{30}}"></mp-icon>
+    <view class="title ts-ll">帮助中心</view>
+    <view class="right tc-tip">></view>
+  </view>
+  <view class="item">
+    <mp-icon class="logo" icon="report-problem" color="black" size="{{30}}"></mp-icon>
+    <view class="title ts-ll">规则介绍</view>
+    <view class="right tc-tip">></view>
+  </view>
+  <!-- <view class="item">
+    <mp-icon class="logo" icon="cellphone" color="black" size="{{30}}"></mp-icon>
+    <view class="title ts-ll">手机号码更正</view>
+    <view class="right tc-tip">></view>
+  </view> -->
+</view>
+
+<mp-dialog id="ewmdialog" title="我的二维码" show="{{ewmdialogshow}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+  <canvas class="inewm" canvas-id="myewm" style="width: 165px; height: 165px;"></canvas>
+  <view class="ts-ss tc-tip tc">此二维码仅用于活动签到等</view>
+</mp-dialog>

@@ -1,0 +1,7 @@
+/* pages/epi/epi.wxss */
+.sitem{display: flex;justify-content: space-between;align-items: center;}
+.ds{display: flex;justify-content: flex-end;align-items: center;}
+.sitem{min-height:50px;}
+.linepicker{height:50px;line-height:50px;width:150px;text-align:right;}
+.showpicker{height:30px;line-height:30px;margin-top:9px;width:150px;text-align:right;border-bottom:1px solid #000}
+.lineradio{width:130px;text-align:right;text-align: right;}

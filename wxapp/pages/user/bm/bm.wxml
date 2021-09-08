@@ -1,0 +1,79 @@
+<!--pages/index/bm/bm.wxml-->
+<view class="bc-n main">
+  <view id="mt">
+    <view id="welcome" class="hor-p">
+      <view class="ts-l tw-b">您好！</view>
+      <view class="ts-s" wx:if="{{user.tid}}">您已加入班队，无法自行更改。</view>
+      <view class="ts-s" wx:else>您可以报一个日常班和一个教学班，报名成功后无法自行更改，请慎重选择。</view>
+    </view>
+  </view>
+  <view id="container" class="hor-p">
+    <mp-loading type="circle" wx:if="{{step==-1}}"></mp-loading>
+    <view wx:if="{{step==0}}" class="ver-p">
+      <view class="mb-m">
+        <view class="tc-tip divider mb-m">您的日常班</view>
+        <view wx:if="{{team.tid}}" class="teamcard sha">
+          <view class="ts-ll tw-b divider">{{team.name}}</view>
+          <view class="display-f-jsb-ac linein">
+            <view>时间</view>
+            <view class="tc-tip">{{team.time}}</view>
+          </view>
+          <view class="display-f-jsb-ac linein">
+            <view>地点</view>
+            <view class="tc-tip">{{team.addr}}</view>
+          </view>
+          <view class="display-f-jsb-ac linein">
+            <view>状态</view>
+            <view class="tc-tip">{{team.statustext}}</view>
+          </view>
+        </view>
+        <view wx:else><button type="primary" data-category="1" bindtap="goStep1"><mp-icon icon="add" color="white" size="{{26}}"></mp-icon>加入日常班</button></view>
+      </view>
+      <view>
+        <view class="tc-tip divider mb-m">您的教学班</view>
+        <view wx:if="{{team2.tid}}" class="teamcard sha">
+          <view class="ts-ll tw-b divider">{{team2.name}}</view>
+          <view class="display-f-jsb-ac linein">
+            <view>时间</view>
+            <view class="tc-tip">{{team2.time}}</view>
+          </view>
+          <view class="display-f-jsb-ac linein">
+            <view>地点</view>
+            <view class="tc-tip">{{team2.addr}}</view>
+          </view>
+          <view class="display-f-jsb-ac linein">
+            <view>状态</view>
+            <view class="tc-tip">{{team2.statustext}}</view>
+          </view>
+        </view>
+        <view wx:else><button type="primary" data-category="2" bindtap="goStep1"><mp-icon icon="add" color="white" size="{{26}}"></mp-icon>加入教学班</button></view>
+      </view>
+      <view class="ver-p">
+        <button wx:if="{{team.tid}}" class="tc-tip" bindtap="goYy">返回预约页面</button>
+      </view>
+    </view>
+    <view wx:if="{{step==1}}">
+      <view class="item sha" wx:for="{{content}}" wx:key="tid">
+        <view class="header divider">
+          <view class="name f-l ts-ll tw-b">{{item.name}}</view>
+          <view class="f-r norwidth tw-b ts-ll {{item.statustext=='开放'?'tc-info':'tc-tip'}}">{{item.statustext}}</view>
+        </view>
+        <view class="content">
+          <view class="f-l left">
+            <view class="number">
+              <view class="f-l">总数：{{item.sum}}位</view>
+              <view class="f-r">余位：<text class="tw-b">{{item.sur}}</text>位</view>
+            </view>
+            <view>时间：{{item.time}}</view>
+          </view>
+          <view class="f-r right" wx:if="{{item.statustext=='开放'}}"  bindtap="joinTeam" data-team="{{item}}">加入</view>
+        </view>
+      </view>
+      <view class="fixedbutton2" bindtap="backStep0">后退</view>
+    </view>
+  </view>
+</view>
+
+<mp-dialog title="您确定要加入'{{selected.name}}'吗？" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <view class="tc-tip ts-ss">报名成功后无法自行更改，请慎重选择</view>
+</mp-dialog>

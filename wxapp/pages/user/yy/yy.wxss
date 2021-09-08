@@ -1,0 +1,25 @@
+/* pages/index/yy/yy.wxss */
+.noteam{margin-top:100px;}
+.inewm{margin:auto}
+/* extra */
+::-webkit-scrollbar {width:0}
+#ewmdialog .weui-dialog__ft{display:none!important;}
+#nodate .weui-dialog__ft{display:none!important;}
+/*  header  */
+#mt{padding-top:25px;padding-bottom: 80px;background-color: #256fff;color:#fff;}
+#actions{overflow: hidden;}
+#actions > view{float:left;width:25%;text-align: center;margin-top: 20px;}
+#actions > view > image{width:30px;height:30px;margin:auto}
+#actions > view > text{display:block;width:100%;text-align:center;}
+
+/*  container  */
+#container{min-height: 40vh;position: relative;top:-55px;border-radius:15px 15px 0px 0px;background-color:#F7F7F7;}
+#container .item{margin-bottom:20px;}
+#container .item > .date{margin-bottom: 10px;}
+#container .item > .date > text{border-bottom: 3px solid red;box-sizing:border-box;font-size:1.1rem;}
+
+.cantclick{pointer-events: none;}
+
+#nodate .header{text-align:left;}
+.nodatebutton{width:80px!important;color:#fff;height:35px;line-height:35px;border-radius:3px;}
+.nodateitem{display: flex;justify-content: space-around;align-items: center;}

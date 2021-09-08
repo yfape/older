@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/entry/entry",
+    "pages/login/login",
+    "pages/guide/guide",
+    "pages/error/error",
+    "pages/admin/admin",
+    "pages/user/yy/yy",
+    "pages/user/bm/bm",
+    "pages/user/jl/jl",
+    "pages/user/wd/wd",
+    "pages/user/yy/yyhd/yyhd",
+    "pages/sign/sign",
+    "pages/admin/hdqd/hdqd",
+    "pages/admin/sectionmanager/sectionmanager",
+    "pages/epi/epi"
+  ],
+  "tabBar": {
+    "color": "#888787",
+    "selectedColor": "#256fff",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/user/yy/yy",
+        "iconPath": "static/icon/yy.jpg",
+        "selectedIconPath": "static/icon/yy1.jpg",
+        "text": "预约"
+      },
+      {
+        "pagePath": "pages/user/bm/bm",
+        "iconPath": "static/icon/bm.jpg",
+        "selectedIconPath": "static/icon/bm1.jpg",
+        "text": "报名"
+      },
+      {
+        "pagePath": "pages/user/jl/jl",
+        "iconPath": "static/icon/jl.jpg",
+        "selectedIconPath": "static/icon/jl1.jpg",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/user/wd/wd",
+        "iconPath": "static/icon/wd.jpg",
+        "selectedIconPath": "static/icon/wd1.jpg",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

@@ -1,0 +1,42 @@
+<!--components/recordpanel/recordpanel.wxml-->
+
+<mp-half-screen-dialog
+  bindclose="hidePanel"
+  show="{{show}}"
+>
+  <view slot="title">
+    <view class="ts-l f-l">{{content.section.team.name}}</view>
+    <view class="ts-l f-r">
+      <text wx:if="{{content.valid==0}}" class="tc-tip">{{content.statustext}}</text>
+      <text wx:elif="{{content.section.status==0}}" class="{{content.arrive==0?'tc-primary':'tc-info'}}">{{content.section.statustext}}</text>
+      <text wx:elif="{{content.section.status==1}}" class="tc-info">{{content.arrive==0 ? content.section.statustext : content.statustext}}</text>
+      <text wx:elif="{{content.section.status==9}}" class="{{content.arrive==0?'tc-error':'tc-info'}}">{{content.statustext}}</text>
+    </view>
+  </view>
+  <view slot="desc" class="desc ts-ll">
+    <slot name="ewm"></slot>
+    <view class="infoitem divider">
+      <view class="f-l">日期：</view>
+      <view class="f-r tc-tip">{{content.section.date}}</view>
+    </view>
+    <view class="infoitem divider">
+      <view class="f-l">场次：</view>
+      <view class="f-r tc-tip">{{content.section.start}}-{{content.section.end}}</view>
+    </view>
+    <view class="infoitem divider">
+      <view class="f-l">地点：</view>
+      <view class="f-r tc-tip">{{content.section.addr?content.section.addr:''}}</view>
+    </view>
+    <view class="infoitem divider">
+      <view class="f-l">余位：</view>
+      <view class="f-r tc-tip">{{content.section.sur}}位</view>
+    </view>
+    <view class="infoitem">
+      <view class="f-l">备注：</view>
+      <view class="f-r tc-tip">{{content.section.tip?content.section.tip:''}}</view>
+    </view>
+  </view>
+  <view slot="footer" wx:if="{{content.section.status==0&&content.valid==1}}">
+    <button wx:if="{{content.valid==1}}" type="warn" bindtap="cancelSection">取消预约</button>
+  </view>
+</mp-half-screen-dialog>

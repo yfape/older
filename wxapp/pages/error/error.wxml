@@ -1,0 +1,6 @@
+<!--pages/error/error.wxml-->
+<view class="xycenter">
+  <view>
+    <view class="tip">[{{statuscode}}] {{msg}}</view>
+  </view>
+</view>

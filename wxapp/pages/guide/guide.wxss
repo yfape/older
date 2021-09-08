@@ -1,0 +1,78 @@
+/* pages/guide/guide.wxss */
+#main{
+  padding: 0 15vw;
+  padding-top: 10vh;
+}
+#welcome{
+  margin-bottom: 0.8rem;
+  animation-delay: 0.5s;
+}
+#tip{
+  animation-delay: 1s;
+}
+.anidev{
+  animation: ft 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+@keyframes ft{
+  from{position: relative;top: 12px;opacity: 0;}
+  to{position: relative;top: 0px;opacity: 1;}
+}
+.act{
+  width: 70%;
+  height: 200px;
+  animation: ft 1s;
+  animation-fill-mode: forwards;
+  animation: ff 1s;
+}
+@keyframes ff{
+  from{padding-top: 12px;opacity: 0;}
+  to{padding-top: 0px;opacity: 1;}
+}
+.bmask::before{
+  content:"|| ";
+  color: green;
+  font-weight: bold;
+}
+.sinput{
+  margin:0 auto;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+  border: 1px solid #888787;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.sinput > .siv{
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  width: 25%;
+  text-align: center;
+  color: #888787;
+}
+.sinput > input{
+  float: left;
+  width: 75%;
+  height: 100%;
+}
+.identityview{
+  background-color: #FCFAFA;
+  overflow: hidden;
+  padding: 5px 10px;
+}
+.identityview > .item{
+  float: left;
+  margin-right: 10px;
+}
+.identityview > image{
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.identityview > view > view{
+  height:25px;
+  line-height: 25px;
+}
+

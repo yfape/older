@@ -1,0 +1,55 @@
+<!--pages/admin/sectionmanager/sectionmanager.wxml-->
+<view class="ver-p hor-p bc-n mb-m" style="height:95vh">
+  <view class="bc-primary ver-p hor-p sha br-s tc-w mb-m">
+    <view class="mb-s" style="overflow:hidden;border-bottom:1px solid #fff">
+      <view class="f-l ts-ll tw-b">{{content.team.name}}</view>
+      <view class="f-r">{{content.date}}</view>
+    </view>
+    <view class="" style="overflow:hidden">
+      <view class="f-l">场次：{{content.start}} - {{content.end}}</view>
+      <view class="f-r">状态：{{content.statustext}}</view>
+    </view>
+    <view class="" style="overflow:hidden">
+      <view class="f-l">预约人数：{{content.count - content.sur}}</view>
+      <view class="f-r">已到人数：{{arriveNum}}</view>
+    </view>
+  </view>
+
+  <view style="display:flex;justify-content:space-between;" class="mb-m">
+    <view class="buttonitem sha" bindtap="scanCode"><mp-icon type="field" icon="qr-code" color="black" size="{{25}}"></mp-icon>扫码签到</view>
+    <view class="buttonitem sha" bindtap="quickScanCode"><mp-icon type="field" icon="sending" color="black" size="{{25}}"></mp-icon>快捷签到</view>
+  </view>
+
+  <view>
+    <view class="mb-s recorditem hor-p"  wx:for="{{content.record}}" wx:key="rid">
+      <view>
+        <view>{{item.user.name}}</view>
+        <view class="tc-tip ts-s">{{item.user.phone}}</view>
+      </view>
+      <view>
+        <button wx:if="{{content.status==9}}" class="bi" disabled="{{true}}">{{item.statustext}}</button>
+        <button class="bi" wx:elif="{{item.arrive==0}}" type="primary" bindtap="arriveRecord" data-rid="{{item.rid}}">签到</button>
+        <button class="bi" wx:else disabled="{{true}}">已到场</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="fixedbutton" bindtap="goBack">后退</view>
+<mp-dialog title="扫描结果" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+  <view wx:if="{{record.user}}">
+    <view class="di divider">
+      <view>姓名</view>
+      <view>{{record.user.name}}</view>
+    </view>
+    <view class="di divider">
+      <view>编号</view>
+      <view>{{record.user.incode}}</view>
+    </view>
+    <view class="di mb-s">
+      <view>电话</view>
+      <view>{{record.user.phone}}</view>
+    </view>
+    <view class="tc-tip ta-c ts-ll">用户已预约本场活动</view>
+  </view>
+  <view wx:else class="tc-tip ts-ll">此用户未预约本场活动</view>
+</mp-dialog>

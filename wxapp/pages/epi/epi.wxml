@@ -1,0 +1,130 @@
+<!--pages/epi/epi.wxml-->
+<view class="ver-p hor-p">
+  <view class="ts-ll tw-b ta-c mb-m">健康情况登记卡</view>
+  <view class="ts-s tc-tip divider">为做好疫情防控，请如实填写，谢谢您的配合!</view>
+  <view class="sitem divider">
+    <view>填写时间</view>
+    <picker mode="date" value="{{input.date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <view class="linepicker">
+        {{input.date}}
+      </view>
+    </picker>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否为疫情较重地区抵蓉人员</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="islocal" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否为旅居疫情较重地区抵蓉人员</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="istour" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否直接接触过疫情较重地区人员</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="istouchlocal" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否接触过与确诊、疑似病例或密切接触者</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="istouch" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否为新冠肺炎确诊、疑似病例康复出院2周内人员</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="istouchrecovery" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">本人及家人和共同居住的人员身体是否有异常</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="isill" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}" checked="true"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider">
+    <view class="ts-s">是否愿意复课</view>
+    <view>
+      <radio-group class="lineradio ds" data-field="iswilling" bindchange="radioChange">
+        <view class="mr-s">
+          <radio value="{{1}}" checked="true"/>
+          <text>是</text>
+        </view>
+        <view>
+          <radio value="{{0}}"/>
+          <text>否</text>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+  <view class="sitem divider mb-m">
+    <view class="ts-s">当日体温</view>
+    <view>
+      <input class="showpicker" type="digit" data-field="heat" bindinput="inputChange">
+        <text>{{input.heat}} ℃</text>
+      </input>
+    </view>
+  </view>
+
+  <button type="primary" bindtap="submit">提交</button>
+</view>
+
+<view class="fixedbutton" bindtap="goBack">后退</view>

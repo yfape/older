@@ -1,0 +1,2 @@
+/* components/recordpanel/recordpanel.wxss */
+.infoitem{overflow:hidden;height:40px;line-height:40px;white-space: nowrap;}

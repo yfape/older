@@ -1,0 +1,27 @@
+<view class="section hor-p">
+  <view class="header divider">
+    <view class="title tw-b">{{content.team.name}}</view>
+    <view class="status" wx:if="{{mode==0}}">
+      <text wx:if="{{content.status==0&&content.record.length>0}}" class="tc-info">已预约</text>
+      <text wx:else class="{{content.status==0?'tc-primary':'tc-info'}} {{content.valid!=1?'tc-tip':''}}">{{content.statustext}}</text>
+    </view>
+    <view class="status" wx:if="{{mode!=0}}">
+      <text wx:if="{{content.status==9}}" class="{{content.record[0].arrive?'tc-info':'tc-error'}}">{{content.record[0].statustext}}</text>
+      <text wx:elif="{{content.record[0].valid==0}}" class="tc-tip">{{content.record[0].statustext}}</text>
+      <text wx:elif="{{content.record[0].arrive==1}}" class="tc-info">{{content.record[0].statustext}}</text>
+      <text wx:else class="{{content.status==0?'tc-primary':'tc-info'}} {{content.valid!=1?'tc-tip':''}}">{{content.statustext}}</text>
+    </view>
+  </view>
+  <view class="content ts-s">
+    <view class="base" wx:if="{{mode!=2}}">
+      <view class="first">场次：{{content.start}}-{{content.end}}</view>
+      <view class="second">名额：<text class="tw-b">{{content.sur?content.sur:0}}</text> 位</view>
+    </view>
+    <view class="base" wx:else>
+      <view class="first">日期：{{content.date}}</view>
+      <view class="second">场次：{{content.start}}-{{content.end}}</view>
+    </view>
+    <view class="singletip" wx:if="{{mode!=2}}">备注：{{content.tip?content.tip:''}}</view>
+    <view wx:else>操作时间：{{content.update_time}}</view>
+  </view>
+</view>

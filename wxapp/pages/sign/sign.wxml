@@ -1,0 +1,8 @@
+<!--pages/sign/sign.wxml-->
+<view class="hor-p ver-p">
+  <view class="ta-c ts-l tw-b mb-m">{{title}}</view>
+  <view class="tc-tip mb-m" style="text-align:left;text-indent: 1em;">
+    <view wx:for="{{content}}" wx:key="index" class="mb-s">{{item}}</view>
+  </view>
+  <button type="primary" bindtap="sign">我同意</button>
+</view>

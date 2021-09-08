@@ -1,0 +1,26 @@
+<!--pages/user/yy/yyhd/yyhd.wxml-->
+<view class="bc-n main">
+  <view id="mt">
+    <view id="welcome" class="hor-p">
+      <view class="ts-l tw-b">您好！</view>
+      <view class="ts-s">同一天只能预约一场活动哦</view>
+    </view>
+  </view>
+  <view id="container" class="hor-p ver-p">
+    <mp-loading type="circle" wx:if="{{loading}}"></mp-loading>
+    <sectioncard wx:if="{{!loading&&content.length>0}}" wx:for="{{content}}" mode="0" wx:key="sid" wx:for-item="v" content="{{v}}" data-section="{{v}}" bindtap="openSection"/>
+    <view wx:if="{{!loading&&content.length==0}}" class="tc-tip ta-c">本日暂未开放场次</view>
+  </view>
+</view>
+<view id="footer" class="bc-primary">
+  <view class="action" bindtap="backPage"><mp-icon icon="previous" color="white" size="{{20}}"></mp-icon> 返回</view>
+  <picker class="datetext" mode="date" value="{{date}}" start="{{startdate}}" end="{{enddate}}" bindchange="bindDateChange">
+    <view class="tc-ll tw-b">
+      {{datetext}}
+    </view>
+  </picker>
+  <view class="action" bindtap="nextDate">下一天</view>
+  
+</view>
+
+<sectionpanel id="sectionpanel" mode="0" bind:hide="hideSection"/>

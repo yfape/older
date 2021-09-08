@@ -1,0 +1,10 @@
+.section{height:100px;background-color:#fff;box-shadow: 0px 1px 5px #ddeefa;border-radius:10px;margin-bottom:10px;}
+.section > .header{height:40px;line-height:40px;}
+.section > .header > .logo{float: left;height:26px;width:26px;margin-top:7px;margin-right:10px;}
+.section > .header > .title{float: left;height:40px;line-height:40px;}
+.section > .header > .status{float: right;height:20px;line-height:20px;margin-top:10px;color:#256fff}
+.section > .content{height:50px;padding-top:5px;padding-bottom:5px;}
+.section > .content > .base{height:25px;line-height:25px;white-space: nowrap;}
+.section > .content > .base > .first{float:left;}
+.section > .content > .base > .second{float:right;}
+.section > .content > .singletip{height:25px;line-height:25px;white-space: nowrap;}

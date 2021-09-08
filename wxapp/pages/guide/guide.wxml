@@ -1,0 +1,36 @@
+<!--pages/guide/guide.wxml-->
+<view id="main">
+  <view id="welcome" class="h1 tbl anidev">您好</view>
+  <view id="tip" class="tc-tip anidev"><text space="emsp"> 由于系统未识别到您的身份，请进行以下操作：</text></view>
+  <view class="act pa-m" wx:if="{{step == 1}}">
+    <view class="tc-tip bmask tc wf mb-m">请点击下方“获取手机号”按钮，并在弹出对话框后选择“允许”</view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" type="primary" disabled="{{loading}}">获取手机号</button>
+  </view>
+  <view class="act pa-m" wx:if="{{step == 2}}">
+    <view class="tc-tip bmask tc wf mb-m">您的手机号未匹配到相关信息，请填写您的卡号或重新选择手机号</view>
+    <view>
+      <button style="margin-bottom:15px" type="primary" disabled="{{loading}}" data-step="3" bindtap="goStep">填写卡号</button>
+      <button open-type="getPhoneNumber" type="default" bindgetphonenumber="getPhoneNumber" disabled="{{loading}}">重新选择手机号</button>
+    </view>
+  </view>
+  <view class="act pa-m" wx:if="{{step == 3}}">
+    <view class="tc-tip bmask tc wf mb-m">请填写您的卡号和姓名，并点击提交</view>
+    <view>
+      <view class="sinput"><view class="siv">卡号：</view><input data-name="incode" maxlength="20" type="number" name="incode" bindinput="bindKeyInput" disabled="{{loading}}"/></view>
+      <view class="sinput"><view class="siv">姓名：</view><input data-name="name" maxlength="10" name="name" bindinput="bindKeyInput" disabled="{{loading}}"/></view>
+      <button type="primary" bindtap="submitIncode" disabled="{{loading}}">提交</button>
+    </view>
+  </view>
+  <view class="act pa-m" wx:if="{{step == 9}}">
+    <view class="tc-tip bmask mb-m">匹配到您的身份信息，请确认是否正确</view>
+    <view class="identityview">
+      <image class="item" src="/static/image/head.jpg"></image>
+      <view class="item">
+        <view>{{s_name}}</view>
+        <view class="tc-tip ts-s"><text class="tc-tip ts-s" wx:if="{{s_incode}}">ID.{{s_incode}}</text><text wx:if="{{!s_incode}}">电话.{{s_phone}}</text></view>
+      </view>
+    </view>
+    <button style="margin:15px auto" type="primary" bindtap="affirmIdentity" disabled="{{loading}}">身份信息正确</button>
+    <button type="default" disabled="{{loading}}" data-step="3" bindtap="goStep">信息有误</button>
+  </view>
+</view>

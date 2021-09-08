@@ -1,0 +1,17 @@
+/* pages/user/wd/wd.wxss */
+#mt{padding-top:45px;padding-bottom: 100px;background-color: #256fff;color:#fff;overflow: hidden;}
+#header > .headimg{height:80px;width:80px;margin-right:20px;overflow: hidden;border-radius: 8px;box-sizing: border-box;border:3px solid #fff}
+#header > .headimg > image{height:100%;width: 100%;}
+#header > .info{width: 200px;}
+#header > .info > .first{white-space: nowrap;}
+#header > .info > .second{white-space: nowrap;}
+
+#main{min-height:300px;position: relative;top:-55px;border-radius:15px 15px 0 0;background-color:#fff;}
+#main > .item{overflow: hidden;}
+#main > .item > view{height:50px;line-height:50px;}
+#main > .item > .logo{margin-top:10px;float:left;margin-right:20px;}
+#main > .item > .title{width:150px;float:left;}
+#main > .item > .right{width:20px;float:right;}
+
+.inewm{margin:auto}
+#ewmdialog .weui-dialog__ft{display:none!important;}

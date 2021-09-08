@@ -1,0 +1,63 @@
+<!--pages/index/yy/yy.wxml-->
+<view class="main bc-n">
+  <view id="mt">
+    <view id="welcome" class="hor-p">
+      <view class="ts-l tw-b">{{welcometext}}好！</view>
+      <view wx:if="{{noteam}}" class="ts-s">你还没有进行报名哦</view>
+      <view wx:else class="ts-s">{{indextext}}</view>
+    </view>
+    <view id="actions">
+      <view bindtap="goYyhd">
+        <mp-icon class="logo" icon="add2" color="white" size="{{37}}"></mp-icon>
+        <text class="ts-s">预约活动</text>
+      </view>
+      <view bindtap="goBm">
+        <mp-icon class="logo" icon="group-detail" color="white" size="{{37}}"></mp-icon>
+        <text class="ts-s">班队报名</text>
+      </view>
+      <view bindtap="goJl">
+        <mp-icon class="logo" icon="time" color="white" size="{{37}}"></mp-icon>
+        <text class="ts-s">预约记录</text>
+      </view>
+      <view bindtap="openMyewm">
+        <mp-icon class="myewm" icon="qr-code" color="white" size="{{37}}"></mp-icon>
+        <text class="ts-s">二维码</text>
+      </view>
+    </view>
+  </view>
+  <view id="container" class="hor-p ver-p">
+    <mp-loading type="circle" wx:if="{{!show}}"></mp-loading>
+    <view wx:elif="{{noteam}}" class="noteam">
+      <view class="tc-tip tc ver-p">请先加入一个班队</view>
+      <button type="primary" bindtap="goBm"><mp-icon icon="group-detail" color="white" size="{{26}}"></mp-icon> 班队报名</button>
+    </view>
+    <view wx:elif="{{indexdata.length <= 0}}" class="noteam">
+      <view class="tc-tip tc ver-p">您没有预约活动</view>
+      <button type="primary" bindtap="goYyhd"><mp-icon icon="add" color="white" size="{{26}}"></mp-icon> 预约活动</button>
+    </view>
+    <view wx:else>
+      <view wx:for="{{indexdata}}" wx:key="sid" wx:for-item="v">
+        <view class="ts-ss tc-tip mb-s">{{v.section.date}}</view>
+        <recordcard content="{{v}}" mode="1" data-record="{{v}}" bindtap="openRecord"></recordcard>
+      </view>      
+    </view>
+  </view>
+  <recordpanel id="recordpanel" bind:hide="hideRecord" mode="1">
+    <view slot="ewm" class="ewm" hidden="{{!recordshow}}"><canvas canvas-id="ewm" style="width: 165px; height: 165px;"></canvas></view>
+  </recordpanel>
+</view>
+<mp-dialog id="ewmdialog" title="我的二维码" show="{{ewmdialogshow}}" bindbuttontap="tapDialogButton" buttons="{{oneButton}}">
+  <canvas class="inewm" canvas-id="myewm" style="width: 165px; height: 165px;"></canvas>
+  <view class="ts-ss tc-tip tc">此二维码仅用于活动签到等</view>
+</mp-dialog>
+
+<mp-dialog id="nodate" title="健康登记" show="{{nodateshow}}" bindbuttontap="nodateActions" mask-closable="{{false}}">
+  <view>
+    <view class="ts-ss tc-tip divider header mb-s">需填写以下日期的健康登记</view>
+    <view wx:for="{{nodates}}" wx:key="item" class="nodateitem ta-c tc-tip mb-s">
+      <view>{{item}}</view>
+      <view>------</view>
+      <view class="bc-info nodatebutton" data-date="{{item}}" bindtap="inputTheEpi">填报</view>
+    </view>
+  </view>
+</mp-dialog>

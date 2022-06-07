@@ -8,15 +8,15 @@
  */
 "use strict";
 
-import Vue from 'vue';
+import Vue from "vue";
 import axios from "axios";
-import main from '@/main.js';
+import main from "@/main.js";
 
 // Full config:  https://github.com/axios/axios#request-config
-// axios.defaults.baseURL = 'http://admin.older.com';
-axios.defaults.baseURL = 'http://oeradmin.scdjw.com.cn';
+axios.defaults.baseURL = "http://oeradmin.***.com";
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/json,multipart/form-data';
+axios.defaults.headers.post["Content-Type"] =
+  "application/json,multipart/form-data";
 
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
@@ -27,14 +27,14 @@ let config = {
 const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
-  function(config) {
-    if(!config.noloading){
-      main.$q.loading.show()
+  function (config) {
+    if (!config.noloading) {
+      main.$q.loading.show();
     }
-    config.headers['Authorization'] = main.$store.state.token
+    config.headers["Authorization"] = main.$store.state.token;
     return config;
   },
-  function(error) {
+  function (error) {
     // Do something with request error
     return Promise.reject(error);
   }
@@ -42,25 +42,27 @@ _axios.interceptors.request.use(
 
 // Add a response interceptor
 _axios.interceptors.response.use(
-  function(response) {
-    main.$q.loading.hide()
+  function (response) {
+    main.$q.loading.hide();
     // Do something with response data
-    main.AItip(response.data.msg)
+    main.AItip(response.data.msg);
     return response.data;
   },
-  function(error) {
-    main.$q.loading.hide()
-    if(error.response.status == 401){
-      main.AItip(error.response.data.msg)
-      main.$router.push('/login');
-    }else{
-      main.AItip(error.response.data.msg?error.response.data.msg:'网络错误')
+  function (error) {
+    main.$q.loading.hide();
+    if (error.response.status == 401) {
+      main.AItip(error.response.data.msg);
+      main.$router.push("/login");
+    } else {
+      main.AItip(
+        error.response.data.msg ? error.response.data.msg : "网络错误"
+      );
       return Promise.reject(error);
     }
   }
 );
 
-Plugin.install = function(Vue, options) {
+Plugin.install = function (Vue, options) {
   Vue.axios = _axios;
   window.axios = _axios;
   Object.defineProperties(Vue.prototype, {
@@ -70,7 +72,7 @@ Plugin.install = function(Vue, options) {
       },
       post() {
         return _axios;
-      }
+      },
     },
     $axios: {
       get() {
@@ -78,11 +80,11 @@ Plugin.install = function(Vue, options) {
       },
       post() {
         return _axios;
-      }
+      },
     },
   });
 };
 
-Vue.use(Plugin)
+Vue.use(Plugin);
 
 export default Plugin;

@@ -41,29 +41,29 @@ return [
     ],
     //域名绑定
     'domain_bind' => [
-        'admin.older.com' => 'admin',
+        'admin.***.com' => 'admin',
         '10.100.80.204' => 'wxapp',
         '192.168.2.3' => 'wxapp',
         
-        'oer.scdjw.com.cn' => 'wxapp',
-        'oeradmin.scdjw.com.cn' => 'admin',
+        'oer.***.com' => 'wxapp',
+        'oeradmin.***.com' => 'admin',
     ],
     'login' => [
-        'salt' => 'liuliu7456'
+        'salt' => 'sdfsdfds34234@##1223sdf'
     ],
     //微信号APPID、APPSECRET
     'wx' => [
-        'AppID' => 'wx8961995cafb1fce1',
-        'AppSecret' => '53e4e1ed2faf695a628f5d99f330bb83',
+        'AppID' => '************************',
+        'AppSecret' => '*******************************',
         'code2Session' => 'https://api.weixin.qq.com/sns/jscode2session'
     ],
     //密钥信息
     'jwt' => [
         'expire' => 36000,
-        'salt' => 'liuliu7456',
+        'salt' => 'sdfsdfds34234@##1223sdf',
         'jsclass' => ['HS256'],
-        'aud' => 'oer.scdjw.com.cn',
-        'iss' => 'oer.scdjw.com.cn',
+        'aud' => 'oer.***.com',
+        'iss' => 'oer.***.com',
     ],
     //系统策略
     'tactic' => [
